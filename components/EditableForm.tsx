@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Input } from "@/components/ui/input"; // <-- make sure you're using shadcn/ui Input
+import { Input } from "@/components/ui/input";
 import { Button } from "./ui/button";
 
 import {
@@ -13,16 +13,31 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
+type Team = {
+  id: number;
+  conference: string;
+  division: string;
+  title: string;
+  win: number;
+  offense: number;
+  defence: number;
+  pt: number;
+  ast: number;
+  reb: number;
+  icon: string;
+  Img: string;
+};
+
 type EditableFormProps = {
-  team: any; // Replace 'any' with a more specific type if available
+  team: Team;
   index: number;
-  onSave: (index: number, form: any) => void; // Replace 'any' with a more specific type if available
+  onSave: (index: number, form: Team) => void;
 };
 
 const EditableForm: React.FC<EditableFormProps> = ({ team, index, onSave }) => {
-  const [form, setForm] = useState(team);
+  const [form, setForm] = useState<Team>(team);
 
-  const handleChange = (field: string, value: any) => {
+  const handleChange = (field: keyof Team, value: string | number) => {
     setForm({ ...form, [field]: value });
   };
 
@@ -82,4 +97,3 @@ const EditableForm: React.FC<EditableFormProps> = ({ team, index, onSave }) => {
 };
 
 export default EditableForm;
-
