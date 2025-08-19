@@ -1,24 +1,92 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+
 import { Progress } from "@/components/ui/progress";
 import { Teams } from "@/constants";
 import Image from "next/image";
+import DropDownMenu from "./DropDownMenu";
+import type { TeamsStatsProps } from "@/types";
+
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+import Leagues from "./Leagues";
 
 const DataTable = () => {
+  const [teams, setTeams] = useState<TeamsStatsProps[]>(Teams);
+
+  // 🔹 Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const rowsPerPage = 10;
+
+  const totalPages = Math.ceil(teams.length / rowsPerPage);
+  const indexOfLastRow = currentPage * rowsPerPage;
+  const indexOfFirstRow = indexOfLastRow - rowsPerPage;
+  const currentRows = teams.slice(indexOfFirstRow, indexOfLastRow);
+
+  const handleDelete = (id: string | number) => {
+    setTeams((prev) => prev.filter((team) => team.id !== id));
+  };
+
+  const handleSave = (index: number, updatedTeam: TeamsStatsProps) => {
+    setTeams((prev) =>
+      prev.map((t, i) => (i === index ? { ...t, ...updatedTeam } : t))
+    );
+  };
+
   return (
-    <div>
+    <div className="space-y-6">
+      {/* Filter the teams by division */}
+      <div className="m-5 bg-white/70 w-full">
+        <h1 className="text-2xl font-extrabold p-5">Teams</h1>
+
+        <div className="flex gap-10 px-8">
+          <div className="flex gap-6">
+            <Image
+              src="/assets/splitview.svg"
+              alt="split_view"
+              width={25}
+              height={25}
+            />
+
+            <Image
+              src="/assets/gridview.svg"
+              alt="grid_view"
+              width={25}
+              height={25}
+            />
+          </div>
+
+          <div>
+            <Leagues
+              onSelectTeams={(selectedTeams) => {
+                setTeams(selectedTeams);
+                setCurrentPage(1); // reset pagination
+              }}
+            />
+          </div>
+        </div>
+      </div>
+      {/* Table */}
       <Table>
         <TableHeader>
-          <TableRow>
-            <TableHead className="w-[400px]">Teams</TableHead>
+          <TableRow className="bg-gray-100 ">
+            <TableHead className="w-[400px] h-20">Teams</TableHead>
             <TableHead className="w-[100px]">Win%</TableHead>
             <TableHead className="w-[250px]">Offense Rating</TableHead>
             <TableHead className="w-[250px]">Defense Rating</TableHead>
@@ -28,16 +96,22 @@ const DataTable = () => {
             <TableHead className="w-[100px]">Action</TableHead>
           </TableRow>
         </TableHeader>
+
         <TableBody>
-          {Teams.map((team, index) => (
-            <TableRow key={index} className="border-b border-gray-300">
+          {currentRows.map((team, index) => (
+            <TableRow key={team.id} className="border-b border-gray-300">
               {/* Team Column */}
               <TableCell className="font-medium">
                 <div className="flex gap-4 items-center p-2">
-                  <Image src={team.icon} alt="star" width={20} height={20} />
                   <Image
-                    src={team.Img}
-                    alt={team.title}
+                    src={team.icon ?? "/fallback.png"}
+                    alt="star"
+                    width={20}
+                    height={20}
+                  />
+                  <Image
+                    src={team.Img ?? "/fallback.png"}
+                    alt="team"
                     width={40}
                     height={40}
                   />
@@ -52,8 +126,8 @@ const DataTable = () => {
                 </div>
               </TableCell>
 
-              {/* Win % Column */}
-              <TableCell className="align-middle">
+              {/* Win % */}
+              <TableCell>
                 <div className="flex items-center gap-2">
                   <span
                     className={`w-2.5 h-2.5 rounded-full ${
@@ -64,11 +138,11 @@ const DataTable = () => {
                         : "bg-yellow-500"
                     }`}
                   />
-                  <span className="font-semibold">{team.win}</span>
+                  <span>{team.win}</span>
                 </div>
               </TableCell>
 
-              {/* Offense Column */}
+              {/* Offense */}
               <TableCell>
                 <div className="flex gap-2">
                   <Progress value={team.offense} />
@@ -76,15 +150,16 @@ const DataTable = () => {
                 </div>
               </TableCell>
 
-              {/* Defense Column */}
+              {/* Defense */}
               <TableCell>
                 <div className="flex gap-2">
-                  <Progress value={team.offense} />
+                  <Progress value={team.defence} />
                   <span>{team.defence}</span>
                 </div>
               </TableCell>
 
-              <TableCell className="align-middle">
+              {/* 3PT */}
+              <TableCell>
                 <div className="flex items-center gap-2">
                   <span
                     className={`w-2.5 h-2.5 rounded-full ${
@@ -98,7 +173,9 @@ const DataTable = () => {
                   <span>{team.pt}</span>
                 </div>
               </TableCell>
-              <TableCell className="align-middle">
+
+              {/* AST */}
+              <TableCell>
                 <div className="flex items-center gap-2">
                   <span
                     className={`w-2.5 h-2.5 rounded-full ${
@@ -112,7 +189,9 @@ const DataTable = () => {
                   {team.ast}
                 </div>
               </TableCell>
-              <TableCell className="">
+
+              {/* REB */}
+              <TableCell>
                 <div className="flex items-center gap-2">
                   <span
                     className={`w-2.5 h-2.5 rounded-full ${
@@ -126,10 +205,62 @@ const DataTable = () => {
                   {team.reb}
                 </div>
               </TableCell>
+
+              {/* ACTION */}
+              <TableCell>
+                <DropDownMenu
+                  team={team}
+                  index={index}
+                  onSave={handleSave}
+                  onDelete={handleDelete}
+                />
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
+
+      {/* 🔹 Pagination */}
+      <Pagination className="mb-10 pb-20">
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                setCurrentPage((prev) => Math.max(prev - 1, 1));
+              }}
+            />
+          </PaginationItem>
+
+          {Array.from({ length: totalPages }, (_, i) => (
+            <PaginationItem key={i}>
+              <PaginationLink
+                href="#"
+                isActive={currentPage === i + 1}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setCurrentPage(i + 1);
+                }}
+              >
+                {i + 1}
+              </PaginationLink>
+            </PaginationItem>
+          ))}
+
+          {totalPages > 5 && <PaginationEllipsis />}
+
+          <PaginationItem>
+            <PaginationNext
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+              }}
+            />
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>
     </div>
   );
 };
