@@ -48,12 +48,13 @@ export default function Leagues({ onSelectTeams }: LeaguesProps) {
           {/* All League */}
           {!selectedConference && !selectedDivision && !allLeague && (
             <MenuItem as="div">
-              {({ focus }) => (
+              {({ focus, close }) => (
                 <button
                   onClick={(e) => {
                     e.preventDefault();
                     setAllLeague(true);
-                    onSelectTeams(Teams); // show all teams
+                    onSelectTeams(Teams);
+                    close(); // ✅ closes the menu
                   }}
                   className={`w-full text-left px-3 py-2 rounded-md ${
                     focus ? "bg-gray-400" : ""
@@ -76,6 +77,7 @@ export default function Leagues({ onSelectTeams }: LeaguesProps) {
                       e.preventDefault();
                       setSelectedConference(conf);
                       setSelectedDivision(null);
+                     
                     }}
                     className={`w-full text-left px-3 py-2 rounded-md ${
                       focus ? "bg-gray-400" : ""
@@ -92,12 +94,13 @@ export default function Leagues({ onSelectTeams }: LeaguesProps) {
             !selectedDivision &&
             Object.keys(grouped[selectedConference]).map((div) => (
               <MenuItem key={div} as="div">
-                {({ focus }) => (
+                {({ focus, close }) => (
                   <button
                     onClick={(e) => {
                       e.preventDefault();
                       setSelectedDivision(div);
-                      onSelectTeams(grouped[selectedConference][div]); // send selected division teams
+                      onSelectTeams(grouped[selectedConference][div]);
+                      close(); // ✅ close menu after selecting division
                     }}
                     className={`w-full text-left px-3 py-2 rounded-md ${
                       focus ? "bg-gray-400" : ""
