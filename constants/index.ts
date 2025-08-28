@@ -1,6 +1,4 @@
 export const Teams = [
-  // 🏀 Eastern Conference
-  // Atlantic Division
   {
     id: 1,
     conference: "Eastern",
@@ -15,6 +13,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/boston_celtics.png",
+    pts: 61,
+    matches: { played: 82, win: 61, lose: 21 },
+    total: {
+      points: 61,
+      medium: { scored: 116.3, conceded: 107.2, diff: 9.1, pct: 74.4 },
+    },
+    internal: {
+      points: 28,
+      record: { win: 28, lose: 13 },
+      medium: { pct: 68.3 },
+    },
+    external: {
+      points: 33,
+      record: { win: 33, lose: 8 },
+      medium: { pct: 80.5 },
+    },
   },
   {
     id: 2,
@@ -30,6 +44,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Brooklyn_Nets.png",
+    pts: 26,
+    matches: { played: 82, win: 26, lose: 56 },
+    total: {
+      points: 26,
+      medium: { scored: 105.1, conceded: 112.2, diff: -7.1, pct: 31.7 },
+    },
+    internal: {
+      points: 12,
+      record: { win: 12, lose: 29 },
+      medium: { pct: 29.3 },
+    },
+    external: {
+      points: 14,
+      record: { win: 14, lose: 27 },
+      medium: { pct: 34.1 },
+    },
   },
   {
     id: 3,
@@ -45,6 +75,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/New_York_Knicks.png",
+    pts: 51,
+    matches: { played: 82, win: 51, lose: 31 },
+    total: {
+      points: 51,
+      medium: { scored: 115.8, conceded: 111.7, diff: 4.1, pct: 62.2 },
+    },
+    internal: {
+      points: 27,
+      record: { win: 27, lose: 14 },
+      medium: { pct: 65.9 },
+    },
+    external: {
+      points: 24,
+      record: { win: 24, lose: 17 },
+      medium: { pct: 58.5 },
+    },
   },
   {
     id: 4,
@@ -60,6 +106,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Philadelphia_76ers.png",
+    pts: 24,
+    matches: { played: 82, win: 24, lose: 58 },
+    total: {
+      points: 24,
+      medium: { scored: 109.6, conceded: 115.8, diff: -6.2, pct: 29.3 },
+    },
+    internal: {
+      points: 12,
+      record: { win: 12, lose: 29 },
+      medium: { pct: 29.3 },
+    },
+    external: {
+      points: 12,
+      record: { win: 12, lose: 29 },
+      medium: { pct: 29.3 },
+    },
   },
   {
     id: 5,
@@ -75,6 +137,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Toronto_Raptors.png",
+    pts: 30,
+    matches: { played: 82, win: 30, lose: 52 },
+    total: {
+      points: 30,
+      medium: { scored: 110.9, conceded: 115.2, diff: -4.3, pct: 36.6 },
+    },
+    internal: {
+      points: 18,
+      record: { win: 18, lose: 23 },
+      medium: { pct: 43.9 },
+    },
+    external: {
+      points: 12,
+      record: { win: 12, lose: 29 },
+      medium: { pct: 29.3 },
+    },
   },
 
   // Central Division
@@ -92,6 +170,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Chicago_Bulls.png",
+    pts: 39,
+    matches: { played: 82, win: 39, lose: 43 },
+    total: {
+      points: 39,
+      medium: { scored: 117.8, conceded: 119.4, diff: -1.6, pct: 47.6 },
+    },
+    internal: {
+      points: 18,
+      record: { win: 18, lose: 23 },
+      medium: { pct: 43.9 },
+    },
+    external: {
+      points: 21,
+      record: { win: 21, lose: 20 },
+      medium: { pct: 51.2 },
+    },
   },
   {
     id: 7,
@@ -107,6 +201,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Cleveland_Cavaliers.jpeg",
+    pts: 64,
+    matches: { played: 82, win: 64, lose: 18 },
+    total: {
+      points: 64,
+      medium: { scored: 121.9, conceded: 112.4, diff: 9.5, pct: 78.0 },
+    },
+    internal: {
+      points: 34,
+      record: { win: 34, lose: 7 },
+      medium: { pct: 82.9 },
+    },
+    external: {
+      points: 30,
+      record: { win: 30, lose: 11 },
+      medium: { pct: 73.2 },
+    },
   },
   {
     id: 8,
@@ -122,6 +232,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Detroit_Pistons.png",
+    pts: 44,
+    matches: { played: 82, win: 44, lose: 38 },
+    total: {
+      points: 44,
+      medium: { scored: 115.5, conceded: 113.6, diff: 1.9, pct: 53.7 },
+    },
+    internal: {
+      points: 22,
+      record: { win: 22, lose: 19 },
+      medium: { pct: 53.7 },
+    },
+    external: {
+      points: 22,
+      record: { win: 22, lose: 19 },
+      medium: { pct: 53.7 },
+    },
   },
   {
     id: 9,
@@ -137,6 +263,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Indiana_Pacers.png",
+    pts: 50,
+    matches: { played: 82, win: 50, lose: 32 },
+    total: {
+      points: 50,
+      medium: { scored: 117.4, conceded: 115.1, diff: 2.3, pct: 61.0 },
+    },
+    internal: {
+      points: 29,
+      record: { win: 29, lose: 11 },
+      medium: { pct: 72.5 },
+    },
+    external: {
+      points: 20,
+      record: { win: 20, lose: 20 },
+      medium: { pct: 50.0 },
+    },
   },
   {
     id: 10,
@@ -152,6 +294,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Milwaukee_Bucks.jpeg",
+    pts: 48,
+    matches: { played: 82, win: 48, lose: 34 },
+    total: {
+      points: 48,
+      medium: { scored: 115.5, conceded: 113.0, diff: 2.5, pct: 58.5 },
+    },
+    internal: {
+      points: 27,
+      record: { win: 27, lose: 14 },
+      medium: { pct: 65.9 },
+    },
+    external: {
+      points: 20,
+      record: { win: 20, lose: 20 },
+      medium: { pct: 50.0 },
+    },
   },
 
   // Southeast Division
@@ -169,6 +327,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Atlanta_Hawks.png",
+    pts: 40,
+    matches: { played: 82, win: 40, lose: 42 },
+    total: {
+      points: 40,
+      medium: { scored: 118.2, conceded: 119.3, diff: -1.1, pct: 48.8 },
+    },
+    internal: {
+      points: 21,
+      record: { win: 21, lose: 19 },
+      medium: { pct: 52.5 },
+    },
+    external: {
+      points: 19,
+      record: { win: 19, lose: 22 },
+      medium: { pct: 46.3 },
+    },
   },
   {
     id: 12,
@@ -184,6 +358,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Charlotte_Hornets.jpeg",
+    pts: 19,
+    matches: { played: 82, win: 19, lose: 63 },
+    total: {
+      points: 19,
+      medium: { scored: 105.1, conceded: 114.2, diff: -9.1, pct: 23.2 },
+    },
+    internal: {
+      points: 12,
+      record: { win: 12, lose: 29 },
+      medium: { pct: 29.3 },
+    },
+    external: {
+      points: 7,
+      record: { win: 7, lose: 34 },
+      medium: { pct: 17.1 },
+    },
   },
   {
     id: 13,
@@ -199,6 +389,22 @@ export const Teams = [
     iconSrc: "/assets/dot.png",
     icon: "/assets/starIcon.png",
     Img: "/assets/Miami_Heat.jpeg",
+    pts: 37,
+    matches: { played: 82, win: 37, lose: 45 },
+    total: {
+      points: 37,
+      medium: { scored: 110.6, conceded: 110.0, diff: 0.6, pct: 45.1 },
+    },
+    internal: {
+      points: 19,
+      record: { win: 19, lose: 22 },
+      medium: { pct: 46.3 },
+    },
+    external: {
+      points: 17,
+      record: { win: 17, lose: 23 },
+      medium: { pct: 42.5 },
+    },
   },
   {
     id: 14,
@@ -214,6 +420,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Orlando_Magic.png",
+    pts: 41,
+    matches: { played: 82, win: 41, lose: 41 },
+    total: {
+      points: 41,
+      medium: { scored: 105.4, conceded: 105.6, diff: -0.2, pct: 50.0 },
+    },
+    internal: {
+      points: 22,
+      record: { win: 22, lose: 19 },
+      medium: { pct: 53.7 },
+    },
+    external: {
+      points: 19,
+      record: { win: 19, lose: 22 },
+      medium: { pct: 46.3 },
+    },
   },
   {
     id: 15,
@@ -229,6 +451,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Washington_Wizards.png",
+    pts: 18,
+    matches: { played: 82, win: 18, lose: 64 },
+    total: {
+      points: 18,
+      medium: { scored: 108.0, conceded: 120.4, diff: -12.4, pct: 22.0 },
+    },
+    internal: {
+      points: 8,
+      record: { win: 8, lose: 32 },
+      medium: { pct: 20.0 },
+    },
+    external: {
+      points: 10,
+      record: { win: 10, lose: 31 },
+      medium: { pct: 24.4 },
+    },
   },
 
   // 🏀 Western Conference
@@ -247,6 +485,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Denver_Nuggets.png",
+    pts: 50,
+    matches: { played: 82, win: 50, lose: 32 },
+    total: {
+      points: 50,
+      medium: { scored: 120.8, conceded: 116.9, diff: 3.9, pct: 61.0 },
+    },
+    internal: {
+      points: 26,
+      record: { win: 26, lose: 15 },
+      medium: { pct: 63.4 },
+    },
+    external: {
+      points: 24,
+      record: { win: 24, lose: 17 },
+      medium: { pct: 58.5 },
+    },
   },
   {
     id: 17,
@@ -262,6 +516,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Minnesota_Timberwolves.jpeg",
+    pts: 49,
+    matches: { played: 82, win: 49, lose: 33 },
+    total: {
+      points: 49,
+      medium: { scored: 114.3, conceded: 109.3, diff: 5.0, pct: 59.8 },
+    },
+    internal: {
+      points: 25,
+      record: { win: 25, lose: 16 },
+      medium: { pct: 61.0 },
+    },
+    external: {
+      points: 24,
+      record: { win: 24, lose: 17 },
+      medium: { pct: 58.5 },
+    },
   },
   {
     id: 18,
@@ -277,6 +547,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Oklahoma_City_Thunder.png",
+    pts: 68,
+    matches: { played: 82, win: 68, lose: 14 },
+    total: {
+      points: 68,
+      medium: { scored: 120.5, conceded: 107.6, diff: 12.9, pct: 82.9 },
+    },
+    internal: {
+      points: 35,
+      record: { win: 35, lose: 6 },
+      medium: { pct: 85.4 },
+    },
+    external: {
+      points: 32,
+      record: { win: 32, lose: 8 },
+      medium: { pct: 80.0 },
+    },
   },
   {
     id: 19,
@@ -292,6 +578,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Portland_Trail_Blazers.png",
+    pts: 36,
+    matches: { played: 82, win: 36, lose: 46 },
+    total: {
+      points: 36,
+      medium: { scored: 110.9, conceded: 113.9, diff: -3.0, pct: 43.9 },
+    },
+    internal: {
+      points: 22,
+      record: { win: 22, lose: 19 },
+      medium: { pct: 53.7 },
+    },
+    external: {
+      points: 14,
+      record: { win: 14, lose: 27 },
+      medium: { pct: 34.1 },
+    },
   },
   {
     id: 20,
@@ -307,6 +609,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Utah_Jazz.png",
+    pts: 17,
+    matches: { played: 82, win: 17, lose: 65 },
+    total: {
+      points: 17,
+      medium: { scored: 111.9, conceded: 121.2, diff: -9.3, pct: 20.7 },
+    },
+    internal: {
+      points: 10,
+      record: { win: 10, lose: 31 },
+      medium: { pct: 24.4 },
+    },
+    external: {
+      points: 7,
+      record: { win: 7, lose: 34 },
+      medium: { pct: 17.1 },
+    },
   },
 
   // Pacific Division
@@ -324,6 +642,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Golden_State_Warriors.png",
+    pts: 48,
+    matches: { played: 82, win: 48, lose: 34 },
+    total: {
+      points: 48,
+      medium: { scored: 113.8, conceded: 110.5, diff: 3.3, pct: 58.5 },
+    },
+    internal: {
+      points: 24,
+      record: { win: 24, lose: 17 },
+      medium: { pct: 58.5 },
+    },
+    external: {
+      points: 24,
+      record: { win: 24, lose: 17 },
+      medium: { pct: 58.5 },
+    },
   },
   {
     id: 22,
@@ -339,6 +673,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/LA_Clippers.png",
+    pts: 50,
+    matches: { played: 82, win: 50, lose: 32 },
+    total: {
+      points: 50,
+      medium: { scored: 112.9, conceded: 108.2, diff: 4.7, pct: 61.0 },
+    },
+    internal: {
+      points: 30,
+      record: { win: 30, lose: 11 },
+      medium: { pct: 73.2 },
+    },
+    external: {
+      points: 20,
+      record: { win: 20, lose: 21 },
+      medium: { pct: 48.8 },
+    },
   },
   {
     id: 23,
@@ -354,6 +704,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Los_Angeles_Lakers.png",
+    pts: 50,
+    matches: { played: 82, win: 50, lose: 32 },
+    total: {
+      points: 50,
+      medium: { scored: 113.4, conceded: 112.2, diff: 1.2, pct: 61.0 },
+    },
+    internal: {
+      points: 31,
+      record: { win: 31, lose: 10 },
+      medium: { pct: 75.6 },
+    },
+    external: {
+      points: 19,
+      record: { win: 19, lose: 22 },
+      medium: { pct: 46.3 },
+    },
   },
   {
     id: 24,
@@ -369,6 +735,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Phoenix_Suns.png",
+    pts: 36,
+    matches: { played: 82, win: 36, lose: 46 },
+    total: {
+      points: 36,
+      medium: { scored: 113.6, conceded: 116.6, diff: -3.0, pct: 43.9 },
+    },
+    internal: {
+      points: 24,
+      record: { win: 24, lose: 17 },
+      medium: { pct: 58.5 },
+    },
+    external: {
+      points: 12,
+      record: { win: 12, lose: 29 },
+      medium: { pct: 29.3 },
+    },
   },
   {
     id: 25,
@@ -384,6 +766,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Sacramento_Kings.png",
+    pts: 40,
+    matches: { played: 82, win: 40, lose: 42 },
+    total: {
+      points: 40,
+      medium: { scored: 115.7, conceded: 115.3, diff: 0.4, pct: 48.8 },
+    },
+    internal: {
+      points: 20,
+      record: { win: 20, lose: 21 },
+      medium: { pct: 48.8 },
+    },
+    external: {
+      points: 20,
+      record: { win: 20, lose: 21 },
+      medium: { pct: 48.8 },
+    },
   },
 
   // Southwest Division
@@ -401,6 +799,22 @@ export const Teams = [
     iconSrc: "/assets/dot.png",
     icon: "/assets/starIcon.png",
     Img: "/assets/Dallas_Mavericks.png",
+    pts: 39,
+    matches: { played: 82, win: 39, lose: 43 },
+    total: {
+      points: 39,
+      medium: { scored: 114.2, conceded: 115.4, diff: -1.2, pct: 47.6 },
+    },
+    internal: {
+      points: 22,
+      record: { win: 22, lose: 18 },
+      medium: { pct: 55.0 },
+    },
+    external: {
+      points: 17,
+      record: { win: 17, lose: 25 },
+      medium: { pct: 40.5 },
+    },
   },
   {
     id: 27,
@@ -416,6 +830,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/Houston_Rockets.jpeg",
+    pts: 52,
+    matches: { played: 82, win: 52, lose: 30 },
+    total: {
+      points: 52,
+      medium: { scored: 114.3, conceded: 109.8, diff: 4.5, pct: 63.4 },
+    },
+    internal: {
+      points: 29,
+      record: { win: 29, lose: 12 },
+      medium: { pct: 70.7 },
+    },
+    external: {
+      points: 23,
+      record: { win: 23, lose: 17 },
+      medium: { pct: 57.5 },
+    },
   },
   {
     id: 28,
@@ -431,6 +861,22 @@ export const Teams = [
     iconSrc: "/assets/dot.png",
     icon: "/assets/starIcon.png",
     Img: "/assets/Memphis_Grizzlies.png",
+    pts: 48,
+    matches: { played: 82, win: 48, lose: 34 },
+    total: {
+      points: 48,
+      medium: { scored: 121.7, conceded: 116.8, diff: 4.9, pct: 58.5 },
+    },
+    internal: {
+      points: 26,
+      record: { win: 26, lose: 15 },
+      medium: { pct: 63.4 },
+    },
+    external: {
+      points: 22,
+      record: { win: 22, lose: 19 },
+      medium: { pct: 53.7 },
+    },
   },
   {
     id: 29,
@@ -446,6 +892,22 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/New_Orleans_Pelicans.png",
+    pts: 21,
+    matches: { played: 82, win: 21, lose: 61 },
+    total: {
+      points: 21,
+      medium: { scored: 109.8, conceded: 119.3, diff: -9.5, pct: 25.6 },
+    },
+    internal: {
+      points: 14,
+      record: { win: 14, lose: 27 },
+      medium: { pct: 34.1 },
+    },
+    external: {
+      points: 7,
+      record: { win: 7, lose: 34 },
+      medium: { pct: 17.1 },
+    },
   },
   {
     id: 30,
@@ -461,5 +923,21 @@ export const Teams = [
     icon: "/assets/starIcon.png",
     iconSrc: "/assets/dot.png",
     Img: "/assets/San_Antonio_Spurs.png",
+    pts: 34,
+    matches: { played: 82, win: 34, lose: 48 },
+    total: {
+      points: 34,
+      medium: { scored: 113.9, conceded: 116.7, diff: -2.8, pct: 41.5 },
+    },
+    internal: {
+      points: 20,
+      record: { win: 20, lose: 20 },
+      medium: { pct: 50.0 },
+    },
+    external: {
+      points: 13,
+      record: { win: 13, lose: 27 },
+      medium: { pct: 32.5 },
+    },
   },
 ];

@@ -17,9 +17,12 @@ import {
   useUser,
 } from "@clerk/nextjs";
 import Image from "next/image";
+import { useRouter, usePathname } from "next/navigation";
 
 const Navbar = () => {
   const { user } = useUser();
+  const router = useRouter();
+  const pathname = usePathname();
 
   return (
     <div className="flex flex-cols gap-5 justify-between items-center border-b border-gray-300 shadow-md sticky">
@@ -29,85 +32,116 @@ const Navbar = () => {
       </div>
 
       <nav className="flex justify-between items-center">
+        {/* Dashboard */}
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-l text-gray-500">
+              <NavigationMenuTrigger
+                onClick={() => router.push("/dashboard")}
+                className={`text-l cursor-pointer ${
+                  pathname === "/dashboard"
+                    ? "text-blue-600 border-b-2 border-blue-600"
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
                 Dashboard
               </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <NavigationMenuLink></NavigationMenuLink>
-              </NavigationMenuContent>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
 
+        {/* Players */}
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-l text-gray-500">
+              <NavigationMenuTrigger
+                onClick={() => router.push("/players")}
+                className={`text-l cursor-pointer ${
+                  pathname === "/players"
+                    ? "text-blue-600 border-b-2 border-blue-600"
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
                 Players
               </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <NavigationMenuLink></NavigationMenuLink>
-              </NavigationMenuContent>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
 
+        {/* Teams */}
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-l text-gray-500">
+              <NavigationMenuTrigger
+                onClick={() => router.push("/teams")}
+                className={`text-l cursor-pointer ${
+                  pathname === "/teams"
+                    ? "text-blue-600 border-b-2 border-blue-600"
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
                 Teams
               </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <NavigationMenuLink></NavigationMenuLink>
-              </NavigationMenuContent>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
 
+        {/* Matches */}
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-l text-gray-500">
+              <NavigationMenuTrigger
+                onClick={() => router.push("/Matches")}
+                className={`text-l cursor-pointer ${
+                  pathname === "/Matches"
+                    ? "text-blue-600 border-b-2 border-blue-600"
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
                 Matches
               </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <NavigationMenuLink></NavigationMenuLink>
-              </NavigationMenuContent>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
 
+        {/* Reports */}
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-l text-gray-500">
+              <NavigationMenuTrigger
+                onClick={() => router.push("/reports")}
+                className={`text-l cursor-pointer ${
+                  pathname === "/reports"
+                    ? "text-blue-600 border-b-2 border-blue-600"
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
                 Reports
               </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <NavigationMenuLink></NavigationMenuLink>
-              </NavigationMenuContent>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
 
+        {/* AI */}
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-l text-gray-500">
+              <NavigationMenuTrigger
+                onClick={() => router.push("/ai")}
+                className={`text-l cursor-pointer ${
+                  pathname === "/ai"
+                    ? "text-blue-600 border-b-2 border-blue-600"
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
                 AI
               </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <NavigationMenuLink></NavigationMenuLink>
-              </NavigationMenuContent>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
       </nav>
 
+      {/* Auth Section */}
       <div>
         <header className="flex justify-end items-center p-4 gap-4 h-16">
           <SignedOut>
@@ -120,12 +154,9 @@ const Navbar = () => {
           </SignedOut>
           <SignedIn>
             <div className="flex items-center gap-3">
-              {/* Show user’s name */}
               <span className="text-l text-gray-500 font-medium sm:text-base">
                 {user?.fullName || user?.firstName}
               </span>
-
-              {/* Optional dropdown for account/logout */}
               <UserButton />
             </div>
           </SignedIn>

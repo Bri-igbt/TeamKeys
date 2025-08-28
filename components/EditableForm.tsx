@@ -27,7 +27,7 @@ const EditableForm: React.FC<EditableFormProps> = ({ team, index, onSave }) => {
       error = `${field} is required`;
     }
 
-    if (typeof value === "number" && (isNaN(value) || value < 0)) {
+    if (typeof value === "number" && (isNaN(value) || value < 10)) {
       error = `${field} must be a valid non-negative number`;
     }
 
@@ -66,7 +66,9 @@ const EditableForm: React.FC<EditableFormProps> = ({ team, index, onSave }) => {
           onChange={(e) => handleChange("title", e.target.value)}
           placeholder="Team Name"
         />
-        {errors.title && <p className="text-xs text-red-500">{errors.title}</p>}
+        {errors.title && (
+          <p className="text-xs text-red-500 py-2">{errors.title}</p>
+        )}
       </div>
 
       <div>
@@ -76,7 +78,9 @@ const EditableForm: React.FC<EditableFormProps> = ({ team, index, onSave }) => {
           onChange={(e) => handleChange("win", parseFloat(e.target.value))}
           placeholder="Win %"
         />
-        {errors.win && <p className="text-xs text-red-500">{errors.win}</p>}
+        {errors.win && (
+          <p className="text-xs text-red-500 py-2">{errors.win}</p>
+        )}
       </div>
 
       <div>
@@ -87,7 +91,7 @@ const EditableForm: React.FC<EditableFormProps> = ({ team, index, onSave }) => {
           placeholder="Offense Rating"
         />
         {errors.offense && (
-          <p className="text-xs text-red-500">{errors.offense}</p>
+          <p className="text-xs text-red-500 py-2">{errors.offense}</p>
         )}
       </div>
 
@@ -99,7 +103,7 @@ const EditableForm: React.FC<EditableFormProps> = ({ team, index, onSave }) => {
           placeholder="Defense Rating"
         />
         {errors.defence && (
-          <p className="text-xs text-red-500">{errors.defence}</p>
+          <p className="text-xs text-red-500 py-2">{errors.defence}</p>
         )}
       </div>
 
@@ -110,7 +114,7 @@ const EditableForm: React.FC<EditableFormProps> = ({ team, index, onSave }) => {
           onChange={(e) => handleChange("pt", parseFloat(e.target.value))}
           placeholder="3PT%"
         />
-        {errors.pt && <p className="text-xs text-red-500">{errors.pt}</p>}
+        {errors.pt && <p className="text-xs text-red-500 py-2">{errors.pt}</p>}
       </div>
 
       <div>
@@ -120,7 +124,9 @@ const EditableForm: React.FC<EditableFormProps> = ({ team, index, onSave }) => {
           onChange={(e) => handleChange("ast", parseFloat(e.target.value))}
           placeholder="AST"
         />
-        {errors.ast && <p className="text-xs text-red-500">{errors.ast}</p>}
+        {errors.ast && (
+          <p className="text-xs text-red-500 py-2">{errors.ast}</p>
+        )}
       </div>
 
       <div>
@@ -129,8 +135,10 @@ const EditableForm: React.FC<EditableFormProps> = ({ team, index, onSave }) => {
           value={form.reb}
           onChange={(e) => handleChange("reb", parseFloat(e.target.value))}
           placeholder="REB"
-        />
-        {errors.reb && <p className="text-xs text-red-500">{errors.reb}</p>}
+          />
+          {errors.reb && (
+            <p className="text-xs text-red-500 py-2">{errors.reb}</p>
+          )}
       </div>
 
       <Button
