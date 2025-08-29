@@ -8,6 +8,17 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+
 import Image from "next/image";
 import { TeamsStatsProps } from "@/types";
 import { Teams } from "@/constants";
@@ -25,26 +36,55 @@ const MatchesTable = () => {
   const currentRows = teams.slice(indexOfFirstRow, indexOfLastRow);
 
   return (
-    <div className="p-4">
+    <div className="flex flex-col m-0">
+      <div className="flex h-10 py-4 mb-5 justify-end gap-x-72 mr-56 font-medium text-sm">
+        <h1>Total</h1>
+        <h1>Internal</h1>
+        <h1>External</h1>
+      </div>
+
+      <div className="flex justify-end gap-20 mr-8 font-medium text-sm">
+        <h1>Matches</h1>
+        <h1>Points</h1>
+        <h1>Medium</h1>
+        <h1>Matches</h1>
+        <h1>Points</h1>
+        <h1>Medium</h1>
+        <h1>Matches</h1>
+        <h1>Points</h1>
+        <h1>Medium</h1>
+      </div>
       <Table>
         <TableCaption>NBA Team Statistics</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead>Pos</TableHead>
-            <TableHead>Team</TableHead>
-            <TableHead>P</TableHead>
-            <TableHead>W</TableHead>
-            <TableHead>L</TableHead>
-            <TableHead>Scored</TableHead>
-            <TableHead>Conceded</TableHead>
-            <TableHead>Diff</TableHead>
-            <TableHead>%</TableHead>
-            <TableHead>Home W</TableHead>
-            <TableHead>Home L</TableHead>
-            <TableHead>Home %</TableHead>
-            <TableHead>Away W</TableHead>
-            <TableHead>Away L</TableHead>
-            <TableHead>Away %</TableHead>
+            <TableHead className="w-12">Pos</TableHead>
+            <TableHead className="w-4/5">Team</TableHead>
+            <TableHead className="w-16">Pts</TableHead>
+            <TableHead className="w-12">P</TableHead>
+            <TableHead className="w-12">W</TableHead>
+            <TableHead className="w-12">L</TableHead>
+            <TableHead className="w-12">S</TableHead>
+            <TableHead className="w-12">C</TableHead>
+            <TableHead className="w-12">D</TableHead>
+            <TableHead className="w-12">S</TableHead>
+            <TableHead className="w-12">C</TableHead>
+            <TableHead className="w-12">P</TableHead>
+            <TableHead className="w-12">W</TableHead>
+            <TableHead className="w-12">L</TableHead>
+            <TableHead className="w-12">S</TableHead>
+            <TableHead className="w-12">C</TableHead>
+            <TableHead className="w-12">D</TableHead>
+            <TableHead className="w-12">S</TableHead>
+            <TableHead className="w-12">C</TableHead>
+            <TableHead className="w-12">P</TableHead>
+            <TableHead className="w-12">W</TableHead>
+            <TableHead className="w-12">L</TableHead>
+            <TableHead className="w-12">S</TableHead>
+            <TableHead className="w-12">C</TableHead>
+            <TableHead className="w-12">D</TableHead>
+            <TableHead className="w-12">S</TableHead>
+            <TableHead className="w-12">C</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -59,14 +99,15 @@ const MatchesTable = () => {
                   <Image
                     src={team.Img ?? "/fallback.png"}
                     alt={team.title}
-                    width={25}
-                    height={25}
+                    width={20}
+                    height={20}
                   />
-                  <span>{team.title}</span>
+                  <span className="text-xs">{team.title}</span>
                 </div>
               </TableCell>
 
               {/* Matches */}
+              <TableCell>{team.pts}</TableCell>
               <TableCell>{team.matches.played}</TableCell>
               <TableCell>{team.matches.win}</TableCell>
               <TableCell>{team.matches.lose}</TableCell>
@@ -75,42 +116,63 @@ const MatchesTable = () => {
               <TableCell>{team.total.medium.scored}</TableCell>
               <TableCell>{team.total.medium.conceded}</TableCell>
               <TableCell>{team.total.medium.diff}</TableCell>
-              <TableCell>{team.total.medium.pct}%</TableCell>
+              <TableCell>{team.total.medium.pct}</TableCell>
 
               {/* Home */}
               <TableCell>{team.internal.record.win}</TableCell>
               <TableCell>{team.internal.record.lose}</TableCell>
-              <TableCell>{team.internal.medium.pct}%</TableCell>
+              <TableCell>{team.internal.medium.pct}</TableCell>
 
               {/* Away */}
               <TableCell>{team.external.record.win}</TableCell>
               <TableCell>{team.external.record.lose}</TableCell>
-              <TableCell>{team.external.medium.pct}%</TableCell>
+              <TableCell>{team.external.medium.pct}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
 
       {/* 🔹 Pagination Controls */}
-      <div className="flex justify-between items-center mt-4">
-        <button
-          onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
-          disabled={currentPage === 1}
-          className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
-        >
-          Prev
-        </button>
-        <p>
-          Page {currentPage} of {totalPages}
-        </p>
-        <button
-          onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
-          disabled={currentPage === totalPages}
-          className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
-        >
-          Next
-        </button>
-      </div>
+      <Pagination className="mb-10 pb-20">
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                setCurrentPage((prev) => Math.max(prev - 1, 1));
+              }}
+            />
+          </PaginationItem>
+
+          {Array.from({ length: totalPages }, (_, i) => (
+            <PaginationItem key={i}>
+              <PaginationLink
+                href="#"
+                isActive={currentPage === i + 1}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setCurrentPage(i + 1);
+                }}
+              >
+                {i + 1}
+              </PaginationLink>
+            </PaginationItem>
+          ))}
+
+          {totalPages > 5 && <PaginationEllipsis />}
+
+          <PaginationItem>
+            <PaginationNext
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+              }}
+            />
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>
     </div>
   );
 };
