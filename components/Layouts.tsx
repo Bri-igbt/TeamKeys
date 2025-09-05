@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Image from "next/image";
+import MatchesTable from "./MatchesTable";
 
 const Layouts = () => {
   const [layout, setLayout] = React.useState<"grid" | "split">("grid");
@@ -17,13 +18,12 @@ const Layouts = () => {
 
   const handleSelectRound = (round: string) => {
     setSelectedRound(round);
-    setOpen(undefined); // ✅ close immediately
+    setOpen(undefined);
   };
 
   return (
     <div className="border-b">
       <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow">
-        
         <Accordion
           type="single"
           collapsible
@@ -88,6 +88,7 @@ const Layouts = () => {
           />
         </div>
       </div>
+      <MatchesTable layout={layout} />
     </div>
   );
 };
